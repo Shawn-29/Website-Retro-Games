@@ -1,7 +1,0 @@
-Games that require review: [
-  {
-    title: 'John Madden Football',
-    link: 'https://gamefaqs.gamespot.com/snes/588454-john-madden-football',
-    reasons: [ 'Description is too long' ]
-  }
-]
