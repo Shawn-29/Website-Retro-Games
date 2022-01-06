@@ -1,0 +1,60 @@
+/*
+=============== 
+#Global Variables
+===============
+*/
+:root {
+    --clr-black: #222;
+    --clr-white: #eee;
+}
+
+/*
+=============== 
+#Default Theme
+===============
+*/
+.default {
+    --clr-btn-bg: #e65a19;
+    --clr-btn-bg-hover: #ffa074;
+    --clr-font-primary: var(--clr-white);
+    --clr-font-secondary: var(--clr-black);
+    --clr-theme-primary: #0052bd;
+    --clr-theme-secondary: var(--clr-white);
+    --clr-theme-dark: #002555;
+    --clr-border: var(--clr-theme-primary);
+    --clr-form-fill: var(--clr-theme-secondary);
+}
+
+/*
+=============== 
+#Retro Theme
+===============
+*/
+.retro {
+    --clr-btn-bg: #e65a19;
+    --clr-btn-bg-hover: #ffa074;
+    --clr-font-primary: #d00;
+    --clr-font-secondary: #d00;
+    --clr-theme-primary: var(--clr-black);
+    --clr-theme-secondary: var(--clr-white);
+    --clr-theme-dark: #000;
+    --clr-border: var(--clr-theme-primary);
+    --clr-form-fill: var(--clr-theme-secondary);
+}
+
+/*
+=============== 
+#Dark Theme
+===============
+*/
+.dark {
+    --clr-btn-bg: #e65a19;
+    --clr-btn-bg-hover: #ffa074;
+    --clr-font-primary: #add8e6;
+    --clr-font-secondary: #add8e6;
+    --clr-theme-primary: var(--clr-black);
+    --clr-theme-secondary: #444;
+    --clr-theme-dark: #000;
+    --clr-border: var(--clr-font-secondary);
+    --clr-form-fill: var(--clr-theme-primary);
+}

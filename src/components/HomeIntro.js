@@ -1,0 +1,86 @@
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { useFetch } from '../custom_hooks/useFetch';
+import { API_ENDPOINT } from '../utils/constants';
+
+export const HomeIntro = () => {
+
+    const {
+        data,
+        isLoading,
+        error
+    } = useFetch(`${API_ENDPOINT}/num-games`);
+
+    return <Wrapper className='jumbotron'>
+        {/* <div className='jumbo-bg'></div> */}
+        <article className='main-container'>
+            <section>
+                <header>
+                    <h1>Explore the World of Retro Videogames!</h1>
+                    <p>
+                        {
+                            !isLoading && !error &&
+                            `Search our game database of
+                            ${data.count ? 'roughly ' + (Math.round(Number(data.count) / 100) * 100).toLocaleString('en-us') : ''}
+                            games, from Gameboy to Super Nintendo! `
+                        }
+                        Use our search filters to find exactly the type of games you're looking for!
+                    </p>
+                    <Link to='./games'>
+                        <button type='button' className='btn'>
+                            Browse Games
+                        </button>
+                    </Link>
+                </header>
+            </section>
+            <img src='/images/game_home_image_2.png' alt='A stack of retro video games.' />
+        </article>
+    </Wrapper>;
+};
+
+const Wrapper = styled.article`
+    position: relative;
+    .jumbo-bg {
+        background-image: url('/images/game_home_image_2.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100%;
+        opacity: .5;
+        position: absolute;
+        width: 100%;
+    }
+    .main-container {
+        color: var(--clr-font-secondary);
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+    h1 {
+        font-family: serif;
+        text-align: center;
+    }
+    section {
+        padding-left: 0;
+    }
+    a {
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+    img {
+        display: block;
+        filter: drop-shadow(0 0 2px var(--clr-border))
+            drop-shadow(0 0 12px var(--clr-border));
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+    }
+    @media screen and (min-width: 768px) {
+        .main-container {
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        }
+        section {
+            padding-left: 20%;
+        }
+    }
+`;
