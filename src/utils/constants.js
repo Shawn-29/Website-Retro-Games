@@ -2,8 +2,10 @@ export const DEFAULT_ITEMS_PER_LIST = 25;
 
 export const itemsPerListOptions = [DEFAULT_ITEMS_PER_LIST, 50, 100, 200];
 
-export const API_ENDPOINT = process.env.REACT_API_ENDPOINT || 'http://localhost:3001';
+export const API_ENDPOINT = process.env.NODE_ENV === 'development' ?
+  'http://localhost:3001' : process.env.API_ENDPOINT;
 console.log('API_ENDPOINT:', API_ENDPOINT);
+console.log('process.env:', process.env);
 
 export const API_GAMES_DIR = '/games';
 
