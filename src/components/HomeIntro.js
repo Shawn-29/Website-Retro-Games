@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useFetch } from '../custom_hooks/useFetch';
-import { API_ENDPOINT } from '../utils/constants';
+import { API_ENDPOINT, CDN_ENDPOINT } from '../utils/constants';
 
 export const HomeIntro = () => {
 
@@ -12,7 +12,6 @@ export const HomeIntro = () => {
     } = useFetch(`${API_ENDPOINT}/num-games`);
 
     return <Wrapper className='jumbotron'>
-        {/* <div className='jumbo-bg'></div> */}
         <article className='main-container'>
             <section>
                 <header>
@@ -33,22 +32,13 @@ export const HomeIntro = () => {
                     </Link>
                 </header>
             </section>
-            <img src='/images/game_home_image_2.png' alt='A stack of retro video games.' />
+            <img src={`${CDN_ENDPOINT}game_home_image_2.png`} alt='A stack of retro video games.' />
         </article>
     </Wrapper>;
 };
 
 const Wrapper = styled.article`
     position: relative;
-    .jumbo-bg {
-        background-image: url('/images/game_home_image_2.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        height: 100%;
-        opacity: .5;
-        position: absolute;
-        width: 100%;
-    }
     .main-container {
         color: var(--clr-font-secondary);
         display: grid;

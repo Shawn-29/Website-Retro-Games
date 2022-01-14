@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { CDN_ENDPOINT } from '../utils/constants';
 
 export const Game = ({ img, title, platform, release_year }) => {
     const wrapRef = useRef(null);
     return <Wrapper ref={wrapRef} className='game'>
         <Link to={`/game?title=${title}_${platform}`}>
             <img
-                src={`./images/${img}`}
+                src={`${CDN_ENDPOINT}${img}`}
                 alt={title}
                 onLoad={() => wrapRef.current.style.opacity = '1'}
             />

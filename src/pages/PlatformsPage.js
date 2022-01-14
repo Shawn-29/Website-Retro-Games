@@ -2,7 +2,7 @@ import { Spinner } from '../components';
 import { ImageStripe } from '../components/ImageStripe';
 import { SinglePlatform } from '../components/SinglePlatform';
 import { useFetch } from '../custom_hooks/useFetch';
-import { API_ENDPOINT } from '../utils/constants';
+import { API_ENDPOINT, CDN_ENDPOINT } from '../utils/constants';
 
 export const PlatformsPage = () => {
 
@@ -35,7 +35,7 @@ export const PlatformsPage = () => {
                         error ? [] :
                             data.platforms.map(d => ({
                                 id: d.id,
-                                url: `./images/${d.img_url}`,
+                                url: `${CDN_ENDPOINT}${d.img_url}`,
                                 altText: d.name
                             }))
                     }

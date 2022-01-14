@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { PLACEHOLDER_IMG_URL, API_ENDPOINT } from "../utils/constants";
+import { PLACEHOLDER_IMG_URL, API_ENDPOINT, CDN_ENDPOINT } from "../utils/constants";
 import { Chart } from "./Chart";
 import { useImageStripeContext } from './ImageStripe';
 import { ImageMagnifier } from './ImageMagnifier';
@@ -61,7 +61,7 @@ export const SinglePlatform = () => {
             borderRadius={'var(--radius)'}
             fallbackImgUrl={`./images/${PLACEHOLDER_IMG_URL}`}
             height={'18rem'}
-            imgUrl={`./images/${img_url}`}
+            imgUrl={`${CDN_ENDPOINT}${img_url}`}
             width={'18rem'}
             zoomPerc={2}
         />

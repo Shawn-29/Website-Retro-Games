@@ -4,6 +4,8 @@ export const itemsPerListOptions = [DEFAULT_ITEMS_PER_LIST, 50, 100, 200];
 
 export const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT ?? 'http://localhost:3001';
 
+export const CDN_ENDPOINT = process.env.REACT_APP_CND_ENDPOINT ?? 'images/';
+
 export const API_GAMES_DIR = '/games';
 
 export const PLACEHOLDER_IMG_URL = 'no_image.png';
