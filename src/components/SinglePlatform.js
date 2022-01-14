@@ -59,7 +59,7 @@ export const SinglePlatform = () => {
             backgroundColor={'var(--clr-theme-secondary)'}
             borderColor={'var(--clr-border)'}
             borderRadius={'var(--radius)'}
-            fallbackImgUrl={`./images/${PLACEHOLDER_IMG_URL}`}
+            fallbackImgUrl={`${CDN_ENDPOINT}${PLACEHOLDER_IMG_URL}`}
             height={'18rem'}
             imgUrl={`${CDN_ENDPOINT}${img_url}`}
             width={'18rem'}
