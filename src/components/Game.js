@@ -11,6 +11,7 @@ export const Game = ({ img, title, platform, release_year }) => {
                 src={`${CDN_ENDPOINT}${img}`}
                 alt={title}
                 onLoad={() => wrapRef.current.style.opacity = '1'}
+                onError={() => wrapRef.current.style.opacity = '1'}
             />
             <div className='overlay'></div>
             <div className='game-info'>
