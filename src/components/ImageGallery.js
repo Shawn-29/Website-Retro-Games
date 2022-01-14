@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ImageMagnifier } from './ImageMagnifier';
-import { PLACEHOLDER_IMG_URL } from '../utils/constants';
+import { CDN_ENDPOINT, PLACEHOLDER_IMG_URL } from '../utils/constants';
 
 export const ImageGallery = ({ imgUrls = [] }) => {
 
@@ -21,8 +21,8 @@ export const ImageGallery = ({ imgUrls = [] }) => {
             backgroundColor = 'var(--clr-theme-secondary)'
             borderColor = 'var(--clr-border)'
             borderRadius = 'var(--radius)'
-            imgUrl = {`./images/${imgUrls[curIndex]}`}
-            fallbackImgUrl = {`./images/${PLACEHOLDER_IMG_URL}`}
+            imgUrl = {`${CDN_ENDPOINT}${imgUrls[curIndex]}`}
+            fallbackImgUrl = {`${CDN_ENDPOINT}${PLACEHOLDER_IMG_URL}`}
             height = '18rem'
             width = '22rem'
             zoomPerc = {2}
@@ -34,7 +34,7 @@ export const ImageGallery = ({ imgUrls = [] }) => {
                     key={index}
                     onClick={() => changeImg(index)}
                 >
-                    <img src={`./images/${url}`} alt='' />
+                    <img src={`${CDN_ENDPOINT}${url}`} alt='' />
                 </div>;
             })}
         </div>
