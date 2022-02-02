@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { ImageMagnifier } from './ImageMagnifier';
 import { CDN_ENDPOINT, PLACEHOLDER_IMG_URL } from '../utils/constants';
@@ -6,6 +6,7 @@ import { CDN_ENDPOINT, PLACEHOLDER_IMG_URL } from '../utils/constants';
 export const ImageGallery = ({ imgUrls = [] }) => {
 
     const [curIndex, setCurIndex] = useState(0);
+    const smImgRefs = useRef([...imgUrls].fill(null));
 
     const changeImg = (index) => {
         setCurIndex(index);
@@ -18,23 +19,32 @@ export const ImageGallery = ({ imgUrls = [] }) => {
 
     return <Wrapper>
         <ImageMagnifier
-            backgroundColor = 'var(--clr-theme-secondary)'
-            borderColor = 'var(--clr-border)'
-            borderRadius = 'var(--radius)'
-            imgUrl = {`${CDN_ENDPOINT}${imgUrls[curIndex]}`}
-            fallbackImgUrl = {`${CDN_ENDPOINT}${PLACEHOLDER_IMG_URL}`}
-            height = '18rem'
-            width = '22rem'
-            zoomPerc = {2}
+            backgroundColor='var(--clr-theme-secondary)'
+            borderColor='var(--clr-border)'
+            borderRadius='var(--radius)'
+            imgUrl={`${CDN_ENDPOINT}${imgUrls[curIndex]}`}
+            fallbackImgUrl={`${CDN_ENDPOINT}${PLACEHOLDER_IMG_URL}`}
+            height='18rem'
+            width='22rem'
+            zoomPerc={2}
         />
         <div className='sm-img-container'>
             {imgUrls.map((url, index) => {
                 return <div
+                    ref={(ele) => smImgRefs.current[index] = ele}
                     className={`thumbnail ${index === curIndex ? 'selected' : ''}`}
                     key={index}
                     onClick={() => changeImg(index)}
                 >
-                    <img src={`${CDN_ENDPOINT}${url}`} alt='' />
+                    <img
+                        src={`${CDN_ENDPOINT}${url}`}
+                        alt=''
+                        onError={() => {
+                            /* this image did not load correctly so hide its container
+                                so users can't view and enlarge an empty image */
+                            smImgRefs.current[index].style.display = 'none';
+                        }}
+                    />
                 </div>;
             })}
         </div>
