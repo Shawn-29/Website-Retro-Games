@@ -39,10 +39,10 @@ export const ImageGallery = ({ imgUrls = [] }) => {
                     <img
                         src={`${CDN_ENDPOINT}${url}`}
                         alt=''
-                        onError={() => {
-                            /* this image did not load correctly so hide its container
-                                so users can't view and enlarge an empty image */
-                            smImgRefs.current[index].style.display = 'none';
+                        onLoad={() => {
+                            /* this image loaded correctly so make its container
+                                visible so users can view and enlarge it */
+                            smImgRefs.current[index].style.display = 'block';
                         }}
                     />
                 </div>;
@@ -64,6 +64,7 @@ const Wrapper = styled.article`
             border: 1px solid var(--clr-border);
             border-radius: var(--radius);
             cursor: pointer;
+            display: none;
             padding-top: 100%;
             position: relative;
             width: 100%;

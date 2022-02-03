@@ -73,7 +73,6 @@ const Wrapper = styled.div`
         opacity: 0;
         position: absolute;
         top: 0;
-        transition: all 0 linear;
         width: 100%;
     }
     :hover .overlay {

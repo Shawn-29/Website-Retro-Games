@@ -97,7 +97,6 @@ const Wrapper = styled.article`
         max-height: 0;
         overflow-y: hidden;
         position: absolute;
-        /* transition: .5s max-height ease 0s; */
         width: 100%;
         z-index: var(--z-index-drop-down);
     }

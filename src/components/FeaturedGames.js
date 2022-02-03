@@ -115,8 +115,12 @@ const SliderGameStyle = styled.div`
     transition: all .35s linear;
     width: 100%;
     .game {
+        border: 1px solid var(--clr-font-primary);
         height: 100%;
         width: 18rem;
+    }
+    .game a {
+        color: var(--clr-font-primary);
     }
 `;
 

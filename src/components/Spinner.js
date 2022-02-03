@@ -21,7 +21,6 @@ const Wrapper = styled.div`
         box-shadow: 0 0 0 1px var(--clr-border), 0 0 0 1px var(--clr-border) inset;
         height: 3.5rem;
         left: 50%;
-        /* position: fixed; */
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
