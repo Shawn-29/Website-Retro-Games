@@ -74,7 +74,8 @@ export const getRoundedPercentages = (dataset) => {
 
     const diff = 100 - dataset.reduce((sum, val) => sum + Math.floor(val), 0);
 
-    return [...dataset].sort(x => Math.floor(x) - x)
+    // return [...dataset].sort(x => Math.floor(x) - x)
+    return dataset
         .map((val, index) => {
             return index < diff ? Math.floor(val) + 1 : Math.floor(val);
         });

@@ -32,6 +32,8 @@ export const SinglePlatform = () => {
 
             const percentValues = getRoundedPercentages(genres.map(g => Math.max(1, g.count / totalGames * 100)));
 
+            console.log('percentValues:', percentValues);
+
             chartData = genres.map((g, index) => {
                 return {
                     field: g.type,
