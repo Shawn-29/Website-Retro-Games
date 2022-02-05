@@ -19,15 +19,28 @@ export const ImageMagnifier = ({
     const imgRef = useRef(null);
     const magRef = useRef(null);
 
-    const getCursorPos = (e) => {
-
+    const getCursorPos = e => {
         /* get the x and y positions of the image */
         const { left, top } = imgRef.current.getBoundingClientRect();
 
-        /* calculate the cursor's x and y coordinates, relative to the image */
+        let x = 0,
+            y = 0;
+
+        /* is this event a touch event? */
+        const touchInfo = e.changedTouches?.[0];
+        if (touchInfo) {
+            /* calculate the cursor's x and y coordinates, relative to the image */
+            x = touchInfo.pageX;
+            y = touchInfo.pageY;
+        }
+        else {
+            x = e.pageX;
+            y = e.pageY;
+        }
+
         return {
-            x: e.pageX - left - window.scrollX,
-            y: e.pageY - top - window.scrollY
+            x: x - left - window.scrollX,
+            y: y - top - window.scrollY
         };
     };
 
@@ -54,23 +67,11 @@ export const ImageMagnifier = ({
         magRef.current.style.backgroundImage = `url("${imgSrc}")`;
     }, [imgSrc]);
 
-    const moveMagnifier = useCallback((e) => {
+    const moveMagnifier = useCallback(e => {
         e.preventDefault();
 
         let { x, y } = getCursorPos(e);
 
-        const touchInfo = e.changedTouches?.[0];
-        console.log(touchInfo);
-        if (touchInfo) {
-            /* get the x and y positions of the image */
-            const { left, top } = imgRef.current.getBoundingClientRect();
-
-            /* calculate the cursor's x and y coordinates, relative to the image */
-            x = touchInfo.pageX - left - window.scrollX;
-            y = touchInfo.pageY - top - window.scrollY;
-        }
-
-        // console.log(x, y);
         const img = imgRef.current;
         const magnifier = magRef.current;
 
