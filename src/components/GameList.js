@@ -86,7 +86,7 @@ export const GameList = () => {
                 className='btn-return'
                 onClick={() => window.scrollTo({
                     top: 0,
-                    behavior: 'smooth'
+                    behavior: 'auto'
                 })}
             >
                 To Top&nbsp;<FaAngleDoubleUp />

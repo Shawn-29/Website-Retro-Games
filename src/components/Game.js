@@ -5,9 +5,9 @@ import { CDN_ENDPOINT } from '../utils/constants';
 
 export const Game = ({ img, title, platform, release_year }) => {
     const wrapRef = useRef(null);
-    return <Wrapper ref={wrapRef} className='game'>
+    return <Wrapper className='game'>
         <Link to={`/game?title=${title}_${platform}`}>
-            <img
+            <img ref={wrapRef}
                 src={`${CDN_ENDPOINT}${img}`}
                 alt={title}
                 onLoad={() => wrapRef.current.style.opacity = '1'}
@@ -29,12 +29,11 @@ const Wrapper = styled.div`
     display: flex;
     height: 16rem;
     justify-content: center;
-    opacity: 0;
+    /* opacity: 0; */
     overflow: hidden;
     padding: .5rem;
     position: relative;
     text-align: center;
-    transition: .4s opacity linear 0s;
     user-select: none;
     width: 100%;
     .inner {
@@ -47,6 +46,8 @@ const Wrapper = styled.div`
         display: block;
         height: 100%;
         object-fit: contain;
+        opacity: 0;
+        transition: .4s opacity linear 0s;
         width: inherit;
     }
     .game-info {
