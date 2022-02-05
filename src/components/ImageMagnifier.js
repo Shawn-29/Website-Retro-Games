@@ -59,6 +59,18 @@ export const ImageMagnifier = ({
 
         let { x, y } = getCursorPos(e);
 
+        const touchInfo = e.changedTouches?.[0];
+        console.log(touchInfo);
+        if (touchInfo) {
+            /* get the x and y positions of the image */
+            const { left, top } = imgRef.current.getBoundingClientRect();
+
+            /* calculate the cursor's x and y coordinates, relative to the image */
+            x = touchInfo.pageX - left - window.scrollX;
+            y = touchInfo.pageY - top - window.scrollY;
+        }
+
+        // console.log(x, y);
         const img = imgRef.current;
         const magnifier = magRef.current;
 
