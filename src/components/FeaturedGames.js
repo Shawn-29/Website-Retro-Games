@@ -6,7 +6,6 @@ import { getResource, getStrPos } from '../utils/helpers';
 import { API_ENDPOINT, PLACEHOLDER_IMG_URL } from '../utils/constants';
 
 export const FeaturedGames = () => {
-
     const [curIndex, setCurIndex] = useState(0);
     const [games, setGames] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
