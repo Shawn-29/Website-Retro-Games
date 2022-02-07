@@ -13,7 +13,7 @@ export const FilterBar = forwardRef(({
     clearFilterFn,
     updateFilterFn
 }, ref) => {
-
+console.log(headerText, filterKey, valueKey)
     const [showModal, setShowModal] = useState(false);
 
     const wrapperRef = useRef(null);
@@ -35,7 +35,7 @@ export const FilterBar = forwardRef(({
                 lastChar = name[0];
             }
 
-            const id = `chk${name}`;
+            const id = `chk${name + filterKey}`;
             return <CheckArea key={index}>
                 <input
                     type='checkbox'
@@ -46,7 +46,7 @@ export const FilterBar = forwardRef(({
                 />
                 <label htmlFor={id} className='link-label'>
                     {capFirstChar ?
-                        <><span className='first-char'>{name[0]}</span>{`${name.substr(1)} (${count})`}</> :
+                        <><span className='first-char'>{name[0]}</span>{`${name.substring(1)} (${count})`}</> :
                         `${name} (${count})`}
                 </label>
             </CheckArea>
