@@ -9,6 +9,7 @@ import { DropDown } from "./DropDown";
 import { Filters } from "./Filters";
 import { FilterBar } from "./FilterBar";
 import { Spinner } from "./Spinner";
+import { CheckBox } from "./CheckBox";
 
 export {
     GameList,
@@ -21,5 +22,6 @@ export {
     DropDown,
     Filters,
     FilterBar,
-    Spinner
+    Spinner,
+    CheckBox
 };

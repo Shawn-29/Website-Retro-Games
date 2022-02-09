@@ -4,6 +4,7 @@ import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
 import { DEFAULT_NUM_CATEGORY_DISPLAY } from '../utils/constants';
 import { getEleDimensions } from '../utils/helpers';
 import { Modal } from './Modal';
+import { CheckBox } from '.';
 
 export const FilterBar = forwardRef(({
     headerText = '',
@@ -13,7 +14,7 @@ export const FilterBar = forwardRef(({
     clearFilterFn,
     updateFilterFn
 }, ref) => {
-console.log(headerText, filterKey, valueKey)
+
     const [showModal, setShowModal] = useState(false);
 
     const wrapperRef = useRef(null);
@@ -34,22 +35,18 @@ console.log(headerText, filterKey, valueKey)
                 capFirstChar = true;
                 lastChar = name[0];
             }
-
             const id = `chk${name + filterKey}`;
-            return <CheckArea key={index}>
-                <input
-                    type='checkbox'
-                    name={id}
-                    id={id}
-                    checked={filterApplied}
-                    onChange={(e) => updateFilterFn(e, filterKey, index)}
-                />
-                <label htmlFor={id} className='link-label'>
-                    {capFirstChar ?
-                        <><span className='first-char'>{name[0]}</span>{`${name.substring(1)} (${count})`}</> :
-                        `${name} (${count})`}
-                </label>
-            </CheckArea>
+            return <CheckBox
+                key={index}
+                id={id}
+                labelText={capFirstChar ?
+                    <>
+                        <span className='first-char'>{name[0]}</span>{`${name.substring(1)} (${count})`}
+                    </> :
+                    `${name} (${count})`}
+                onChange={(e) => updateFilterFn(e, filterKey, index)}
+                isChecked={filterApplied}
+            />;
         });
     }, [filterData, filterKey, updateFilterFn, valueKey]);
 
@@ -65,18 +62,14 @@ console.log(headerText, filterKey, valueKey)
                     filterApplied,
                     index
                 } = value;
-
-                const id = `chk${name}`;
-                return <CheckArea key={index}>
-                    <input
-                        type='checkbox'
-                        name={id}
-                        id={id}
-                        checked={filterApplied}
-                        onChange={(e) => updateFilterFn(e, filterKey, index)}
-                    />
-                    <label htmlFor={id} className='link-label'>{`${name} (${count})`}</label>
-                </CheckArea>;
+                const id = `chk${name + filterKey}`;
+                return <CheckBox
+                    key={index}
+                    id={id}
+                    labelText={`${name} (${count})`}
+                    onChange={(e) => updateFilterFn(e, filterKey, index)}
+                    isChecked={filterApplied}
+                />;
             });
     }, [filterData, filterKey, updateFilterFn, valueKey]);
 
@@ -121,10 +114,6 @@ console.log(headerText, filterKey, valueKey)
         }
     </FormControl>;
 });
-
-const CheckArea = styled.div`
-    align-items: baseline;
-`;
 
 const FilterContainer = styled.article`
     display: grid;
