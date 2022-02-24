@@ -1,29 +1,17 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useFetch } from '../custom_hooks/useFetch';
-import { API_ENDPOINT, CDN_ENDPOINT } from '../utils/constants';
+import { CDN_ENDPOINT } from '../utils/constants';
 
 export const HomeIntro = () => {
-
-    const {
-        data,
-        isLoading,
-        error
-    } = useFetch(`${API_ENDPOINT}/num-games`);
-
     return <Wrapper className='jumbotron'>
         <article className='main-container'>
             <section>
                 <header>
                     <h1>Explore the World of Retro Videogames!</h1>
                     <p>
-                        {
-                            !isLoading && !error &&
-                            `Search our game database of
-                            ${data.count ? 'roughly ' + (Math.round(Number(data.count) / 100) * 100).toLocaleString('en-us') : ''}
-                            games, from Gameboy to Super Nintendo! `
-                        }
-                        Use our search filters to find exactly the type of games you're looking for!
+                        Search our database of thousands of games from your favorite classic game
+                        consoles including Sega Genesis and Super Nintendo! Our simple search filters
+                        make finding just the right game easy!
                     </p>
                     <Link to='./games'>
                         <button type='button' className='btn'>
