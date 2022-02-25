@@ -37,7 +37,6 @@ export const GameList = () => {
     }, [gameList]);
 
     if (error) {
-        console.log('error:', error);
         return <article>
             <header className='error-header'>
                 <h4>There are no games at this time.</h4>
