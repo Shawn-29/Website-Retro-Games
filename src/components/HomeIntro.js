@@ -43,14 +43,12 @@ const Wrapper = styled.article`
     }
     a {
         display: inline-block;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
     }
     img {
         display: block;
         filter: drop-shadow(0 0 2px var(--clr-border))
             drop-shadow(0 0 12px var(--clr-border));
-        height: 100%;
-        object-fit: contain;
         width: 100%;
     }
     @media screen and (min-width: 768px) {

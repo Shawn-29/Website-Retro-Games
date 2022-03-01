@@ -103,7 +103,11 @@ export const Modal = ({
                     {children}
                 </div>
             </section>
-        </Wrapper>, document.body
+        </Wrapper>,
+        /* using React's createPortal, render the modal as a child of the document's body
+            so it will not be affected by other components' functionality (e.g. if another
+            component would become hidden or change styling) */
+        document.body
     );
 };
 
@@ -137,6 +141,7 @@ const Wrapper = styled.article`
         overflow-y: scroll;
     }
     .close-btn {
+        background-color: transparent;
         border: none;
         height: 1.6rem;
         margin: .35rem;

@@ -6,7 +6,7 @@ import { FilterProvider } from './contexts/filter_context';
 const App = () => {
   return <Router>
     <FilterProvider>
-      <DropDown ContentComponent={Navbar} contentMsg={'Site Navigation'} />
+      <DropDown ContentComponent={Navbar} contentMsg={'Site Navigation'} forceClose={true} />
       <Switch>
         <Route exact path='/'>
           <HomePage />

@@ -4,9 +4,16 @@ import styled from 'styled-components';
 import { addGlobalHandler, removeGlobalHandler } from '../utils/global_handler';
 
 export const DropDown = ({
+    /* component the drop down wraps and hides/unhides */
     ContentComponent,
+    /* drop down button text */
     contentMsg = '',
+    /* supply a valid CSS color value */
     bgColor = null,
+    /* if false, clicking in the ContentComponent will not close the drop down;
+        useful for interacting with components once they are visible */
+    forceClose = false,
+    /* props to pass to the ContentComponent */
     ...props
 }) => {
 
@@ -38,10 +45,10 @@ export const DropDown = ({
                         setIsHidden(false);
                     }
                     else {
-                        setIsHidden(true);                      
+                        setIsHidden(true);
                     }
                 }
-                else if (!temp.contains(e.target) && !isHidden) {
+                else if ((!temp.contains(e.target) || forceClose) && !isHidden) {
                     setIsHidden(true);
                 }
             }
@@ -59,7 +66,7 @@ export const DropDown = ({
                 callback: hideCheck
             });
         }
-    }, [isHidden]);
+    }, [isHidden, forceClose]);
 
     return <Wrapper ref={wrapperRef}>
         <button
