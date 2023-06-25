@@ -1,0 +1,200 @@
+@import './themes.css';
+
+/*
+=============== 
+#Variables
+===============
+*/
+:root {
+
+  --clr-black: #222;
+  --clr-dark-theme: #002555;
+  --clr-light-orange: #ffa074;
+  --clr-orange: #e65a19;
+  --clr-theme: #0052bd;
+  --clr-white: #eee;
+  --transition: all 0.15s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --line-height: 2;
+  --max-width: 74rem;
+  --fixed-width: 620px;
+  --sidebar-width: 11rem;
+  --z-index-drop-down: 998;
+  --z-index-modal: 999;
+}
+
+
+/*
+=============== 
+#Global Styles
+===============
+*/
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 18px;
+}
+body {
+  background: var(--clr-theme-secondary);
+  color: var(--clr-font-secondary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.875rem;
+  line-height: var(--line-height);
+  min-width: 10rem;
+  overflow-x: hidden;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--clr-grey-8);
+}
+label {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+select {
+  border-radius: var(--radius);
+  padding: .25rem;
+}
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: .9rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+main {
+  /* force the footer to stay at the bottom of the page */
+  flex: 1;
+}
+
+.link-label,
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+/* React entry point element that contains all other elements;
+  force the footer to stay at the bottom of the page */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  position: relative;
+  width: 100%;
+}
+
+.btn {
+  background-color: var(--clr-orange);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--clr-white);
+  letter-spacing: var(--spacing);
+  padding: .4rem .8rem;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--clr-light-orange);
+  color: var(--clr-black);
+}
+
+.jumbotron {
+  min-height: 60vh;
+  width: 100%;
+}
+
+.error-header {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-overflow {
+  overflow: hidden !important;
+}
+
+.link-label:hover {
+  color: #4687db;
+}
+
+@media screen and (min-width: 576px) {
+  .main-container {
+    width: 96%;
+  }
+}
