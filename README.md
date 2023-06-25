@@ -7,7 +7,7 @@ type of games that interest them.
 
 This site was built primarily for my practice and learning of React, Node, API development, and MySQL.
 
-The app is online! You can try it [here](https://retro-games-3yy4.onrender.com/). The app is run under
+The app is online! [You can try it here](https://retro-games-3yy4.onrender.com/). The app is run under
 a free hosting plan so it might take a few seconds to start up.
 
 ## Features:
