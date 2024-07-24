@@ -24,7 +24,7 @@ export const Chart = ({
                     return;
                 }
                 ele.style.transitionDuration = '1s';
-                ele.style.maxWidth = `${(data[index].value / highValue * 100) | 0}%`;
+                ele.style.maxWidth = `${Math.ceil(data[index].value / highValue * 100)}%`;
             });
         }
     }, [data]);
